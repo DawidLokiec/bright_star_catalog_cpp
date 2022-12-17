@@ -1,0 +1,1 @@
+# bright_star_catalog_cpp
