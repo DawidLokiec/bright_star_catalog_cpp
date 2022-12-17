@@ -1,1 +1,1 @@
-# The Bright Star Catalog for C++ projects
+# The Bright Star Catalog 5 for C++ projects
