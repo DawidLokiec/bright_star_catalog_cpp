@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "bright_start_catalog_parser.h"
+#include "bright_star_catalog_parser.h"
 #include <type_traits>
 #include "rapidcsv.h"
 #include <numbers>
@@ -91,6 +91,7 @@ TEST(BrightStartCatalogV5BinaryParserTest, ShouldParseEntiresProperly) {
 	ASSERT_EQ(9'096, rowCount);
 
 	std::vector<BrightStarCatalog::v5::Entry> entries = BrightStarCatalog::v5::parse().entries;
+
 
 	// 9,100 entries were parsed
 	ASSERT_EQ(9'110, entries.size());

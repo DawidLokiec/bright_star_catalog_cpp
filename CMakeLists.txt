@@ -42,7 +42,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # Unit tests as an executable of this library
-add_executable(bright_star_catalog_cpp_tests test/bright_start_catalog_parser_test.cpp)
+add_executable(bright_star_catalog_cpp_tests test/bright_star_catalog_parser_test.cpp)
 target_link_libraries(bright_star_catalog_cpp_tests gtest_main bright_star_catalog_cpp)
 
 add_test(NAME bright_star_catalog_cpp_tests COMMAND bright_star_catalog_cpp_tests WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/test/")

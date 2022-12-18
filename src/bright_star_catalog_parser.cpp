@@ -1,4 +1,4 @@
-#include "bright_start_catalog_parser.h"
+#include "bright_star_catalog_parser.h"
 #include "binary_reader.h"
 #include "config.h"
 

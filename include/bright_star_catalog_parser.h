@@ -1,5 +1,5 @@
-#ifndef BRIGHT_START_CATALOG_PARSER_H
-#define BRIGHT_START_CATALOG_PARSER_H
+#ifndef BRIGHT_STAR_CATALOG_PARSER_H
+#define BRIGHT_STAR_CATALOG_PARSER_H
 
 #include <string>
 #include <vector>
@@ -151,4 +151,4 @@ namespace BrightStarCatalog::v5 {
 	ParsingResult parse(const std::string &filepath);
 }
 
-#endif //BRIGHT_START_CATALOG_PARSER_H
+#endif //BRIGHT_STAR_CATALOG_PARSER_H
