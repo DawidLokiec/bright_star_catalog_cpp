@@ -12,7 +12,7 @@
 namespace BrightStarCatalog::v5 {
 
 	/**
-	 * The header of the Bright Star Catalog (BSC) 5.
+	 * @brief The header of the Bright Star Catalog (BSC) 5.
 	 * The catalog header tells the program what to expect in each.
 	 * The catalog header is 28 bytes in size.
 	 *
@@ -21,18 +21,21 @@ namespace BrightStarCatalog::v5 {
 	 */
 	struct Header {
 		/**
-		 * Subtract this number to get the sequence number. Expected to be 0.
+		 * @brief Subtract this number from the star number to get the sequence number.
+		 * Expected to be 0.
 		 */
 		int32_t STAR0;
 
 		/**
-		 * The first star number in file. Expected to be 1.
+		 * @brief The first star number in file.
+		 * Expected to be 1.
 		 */
 		int32_t STAR1;
 
 		/**
-		 * Number of stars in file. If negative, coordinates are J2000 instead of B1950.
-		 * Expected to be 9,110 or -9,100.
+		 * @brief Number of stars in file.
+		 * If negative, coordinates are J2000 instead of B1950.
+	     * Expected to be -9,100 or 9,110.
 		 */
 		int32_t STARN;
 
@@ -54,19 +57,22 @@ namespace BrightStarCatalog::v5 {
 		int32_t MPROP;
 
 		/**
+		 * @brief Number of magnitudes present (0-10).
 		 * The data are expected to be in B1950 equatorial coordinates unless NMAG is negated.
 		 * Number of magnitudes present (-1=J2000 instead of B1950=1).
-		 * Number of magnitudes present (0-10).
+		 * Expected to be -1.
 		 */
 		int32_t NMAG;
 
 		/**
-		 * Number of bytes per star entry. Expected to be 32.
+		 * @brief Number of bytes per star entry.
+		 * Expected to be 32.
 		 */
 		int32_t NBENT;
 	};
 
 	/**
+	 * @brief An entry in the Bright Star Catalog (BSC) 5.
 	 * Each catalog entry in BSC5 contains 32 bytes.
 	 *
 	 * @see http://tdc-www.harvard.edu/catalogs/bsc5.entry.html
@@ -74,44 +80,44 @@ namespace BrightStarCatalog::v5 {
 	 */
 	struct Entry {
 		/**
-		 * The Catalog number of star.
+		 * @brief The optional catalog number of star.
 		 * Must be 4 bytes in size!
 		 */
 		float XNO;
 
 		/**
-		 * The B1950 Right Ascension (radians).
+		 * @brief The Right Ascension (radians).
 		 *
 		 * Must be 8 bytes in size!
 		 */
 		double SRA0;
 
 		/**
-		 * The B1950 Declination (radians).
+		 * @brief The Declination (radians).
 		 * Must be 8 bytes in size!
 		 */
 		double SDEC0;
 
 		/**
-		 * The Spectral type (2 characters).
+		 * @brief The Spectral type (2 characters).
 		 * Must be 2 bytes in size!
 		 */
 		char IS[2];
 
 		/**
-		 * V Magnitude * 100 [0-10 may be present]
+		 * @brief V Magnitude * 100 [0-10 may be present]
 		 * Must be 2 bytes in size!
 		 */
 		int16_t MAG;
 
 		/**
-		 * R.A. proper motion (radians per year).
+		 * @brief R.A. proper motion (radians per year).
 		 * Must be 4 bytes in size!
 		 */
 		float XRPM;
 
 		/**
-		 * Dec. proper motion (radians per year)
+		 * @brief Dec. proper motion (radians per year)
 		 * Must be 4 bytes in size!
 		 */
 		float XDPM;
