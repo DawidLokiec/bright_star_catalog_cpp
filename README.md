@@ -18,4 +18,4 @@ However, there is the overloaded function for specifying the path to your own bi
 BrightStarCatalog::v5::ParsingResult parsingResult = BrightStarCatalog::v5::parse("yourFilepath.bin");
 ```
 ---
-Interesting pull requests are always welcome :)
+Interesting pull requests are always welcome.
