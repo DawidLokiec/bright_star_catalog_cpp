@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.24)
-project(bright_star_catalog_cpp LANGUAGES CXX VERSION 0.1.0)
+cmake_minimum_required(VERSION 3.25.1)
+project(bright_star_catalog_cpp LANGUAGES CXX VERSION 1.0.0)
 
-set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -16,11 +16,9 @@ target_include_directories(bright_star_catalog_cpp PUBLIC include/)
 target_include_directories(bright_star_catalog_cpp PRIVATE src ${CMAKE_CURRENT_BINARY_DIR})
 
 if (MSVC)
-    # PUBLIC = use this compile options also while compiling the project simulation-engine
     # warning level 4 and all warnings as errors
     target_compile_options(bright_star_catalog_cpp PUBLIC /W4 /WX)
 else()
-    # PUBLIC = use this compile options also while compiling the project simulation-engine
     # lots of warnings and all warnings as errors
     target_compile_options(bright_star_catalog_cpp PUBLIC -Wall -Wextra -pedantic -Werror)
 endif()
