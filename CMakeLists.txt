@@ -16,14 +16,16 @@ target_include_directories(bright_star_catalog_cpp PUBLIC include/)
 target_include_directories(bright_star_catalog_cpp PRIVATE src ${CMAKE_CURRENT_BINARY_DIR})
 
 if (MSVC)
+    # PRIVATE specifies that the specified compile options are only for the bright_star_catalog_cpp itself,
+    # and not for any targets that link to it.
     # warning level 4 and all warnings as errors
-    target_compile_options(bright_star_catalog_cpp PUBLIC /W4 /WX)
-else()
+    target_compile_options(bright_star_catalog_cpp PRIVATE /W4 /WX)
+else ()
     # PRIVATE specifies that the specified compile options are only for the bright_star_catalog_cpp itself,
     # and not for any targets that link to it.
     # lots of warnings and all warnings as errors
     target_compile_options(bright_star_catalog_cpp PRIVATE -Wall -Wextra -pedantic -Werror)
-endif()
+endif ()
 
 set(RESOURCES_FOLDER_PATH "${PROJECT_SOURCE_DIR}/res/")
 configure_file(config.h.in config.h @ONLY)
