@@ -19,8 +19,10 @@ if (MSVC)
     # warning level 4 and all warnings as errors
     target_compile_options(bright_star_catalog_cpp PUBLIC /W4 /WX)
 else()
+    # PRIVATE specifies that the specified compile options are only for the bright_star_catalog_cpp itself,
+    # and not for any targets that link to it.
     # lots of warnings and all warnings as errors
-    target_compile_options(bright_star_catalog_cpp PUBLIC -Wall -Wextra -pedantic -Werror)
+    target_compile_options(bright_star_catalog_cpp PRIVATE -Wall -Wextra -pedantic -Werror)
 endif()
 
 set(RESOURCES_FOLDER_PATH "${PROJECT_SOURCE_DIR}/res/")
