@@ -1,8 +1,9 @@
 #include <gtest/gtest.h>
-#include "bright_star_catalog_parser.h"
 #include <type_traits>
 #include "rapidcsv.h"
 #include <numbers>
+
+#include "bsc/bright_star_catalog_parser.h"
 
 namespace {
 	double toRadians(const double degrees) {

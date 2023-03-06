@@ -1,10 +1,9 @@
-#include "bright_star_catalog_parser.h"
+#include <bit>
+#include <stdexcept>
+
+#include "bsc/bright_star_catalog_parser.h"
 #include "binary_reader.h"
 #include "config.h"
-
-#include <bit>
-#include <cmath>
-#include <stdexcept>
 
 // false positive warnings, because on another user's host the byte order might not be the same
 BrightStarCatalog::v5::ParsingResult BrightStarCatalog::v5::parse() {
