@@ -1,6 +1,7 @@
-#include "binary_reader.h"
 #include <iostream>
 #include <stdexcept>
+
+#include "binary_reader.h"
 
 using namespace BrightStarCatalog;
 
