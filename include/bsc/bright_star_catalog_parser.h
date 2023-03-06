@@ -5,7 +5,7 @@
 #include <vector>
 
 /**
- * This namespace declares the scope of the functions belonging to the current library Bright Star Catalog 5 for C++.
+ * @brief This namespace declares the scope of the functions belonging to the current library Bright Star Catalog 5 for C++.
  *
  * @see http://tdc-www.harvard.edu/catalogs/bsc5.html
  */
@@ -124,7 +124,7 @@ namespace BrightStarCatalog::v5 {
 	};
 
 	/**
-	 * The parsing result.
+	 * @brief The parsing result.
 	 */
 	struct ParsingResult {
 		/**
@@ -150,7 +150,7 @@ namespace BrightStarCatalog::v5 {
 	ParsingResult parse();
 
 	/**
-	 * Parses the star catalogs in binary format from http://tdc-www.harvard.edu/catalogs/bsc5.html.
+	 * @brief Parses the star catalogs in binary format from http://tdc-www.harvard.edu/catalogs/bsc5.html.
 	 * @param filepath the path to the star catalog to parse.
 	 * @return the parsing result.
 	 */
