@@ -47,4 +47,4 @@ FetchContent_MakeAvailable(googletest)
 add_executable(${PROJECT_NAME}-unit-tests test/bright_star_catalog_parser_test.cpp)
 target_link_libraries(${PROJECT_NAME}-unit-tests gtest_main bright_star_catalog_cpp)
 
-add_test(NAME ${PROJECT_NAME}-unit-tests COMMAND bright_star_catalog_cpp_tests WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/test/")
+add_test(NAME ${PROJECT_NAME}-unit-tests COMMAND ${PROJECT_NAME}-unit-tests WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/test/")
