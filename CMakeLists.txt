@@ -6,25 +6,25 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(
-        bright_star_catalog_cpp
+        ${PROJECT_NAME}
         src/bright_star_catalog_parser.cpp
         src/binary_reader.cpp)
 
-target_include_directories(bright_star_catalog_cpp PUBLIC include/)
+target_include_directories(${PROJECT_NAME} PUBLIC include/)
 # A CMake pattern to have headers that are not seen by the consumers of this library.
 # So headers which not have to be visible for consumers should be placed in src/
-target_include_directories(bright_star_catalog_cpp PRIVATE src ${CMAKE_CURRENT_BINARY_DIR})
+target_include_directories(${PROJECT_NAME} PRIVATE src ${CMAKE_CURRENT_BINARY_DIR})
 
 if (MSVC)
     # PRIVATE specifies that the specified compile options are only for the bright_star_catalog_cpp itself,
     # and not for any targets that link to it.
     # warning level 4 and all warnings as errors
-    target_compile_options(bright_star_catalog_cpp PRIVATE /W4 /WX)
+    target_compile_options(${PROJECT_NAME} PRIVATE /W4 /WX /EHsc /std:c++20)
 else ()
     # PRIVATE specifies that the specified compile options are only for the bright_star_catalog_cpp itself,
     # and not for any targets that link to it.
     # lots of warnings and all warnings as errors
-    target_compile_options(bright_star_catalog_cpp PRIVATE -Wall -Wextra -pedantic -Werror)
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic -Werror)
 endif ()
 
 set(RESOURCES_FOLDER_PATH "${PROJECT_SOURCE_DIR}/res/")
@@ -44,7 +44,7 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 # Unit tests as an executable of this library
-add_executable(bright_star_catalog_cpp_tests test/bright_star_catalog_parser_test.cpp)
-target_link_libraries(bright_star_catalog_cpp_tests gtest_main bright_star_catalog_cpp)
+add_executable(${PROJECT_NAME}-unit-tests test/bright_star_catalog_parser_test.cpp)
+target_link_libraries(${PROJECT_NAME}-unit-tests gtest_main bright_star_catalog_cpp)
 
-add_test(NAME bright_star_catalog_cpp_tests COMMAND bright_star_catalog_cpp_tests WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/test/")
+add_test(NAME ${PROJECT_NAME}-unit-tests COMMAND bright_star_catalog_cpp_tests WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}/test/")
