@@ -5,8 +5,6 @@
 #include "binary_reader.h"
 #include "config.h"
 
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "Simplify"
 // false positive warnings, because on another user's host the byte order might not be the same
 BrightStarCatalog::v5::ParsingResult BrightStarCatalog::v5::parse() {
 	const bool littleEndianPlatform = std::endian::native == std::endian::little;
@@ -22,7 +20,6 @@ BrightStarCatalog::v5::ParsingResult BrightStarCatalog::v5::parse() {
 		);
 	}
 }
-#pragma clang diagnostic pop
 
 BrightStarCatalog::v5::ParsingResult BrightStarCatalog::v5::parse(const std::string &filepath) {
 
